@@ -3,7 +3,6 @@ import Link from "next/link";
 import Error from "../error";
 import Pagination from "@/app/components/Pagination";
 import Image from "next/image";
-import { Suspense } from "react";
 
 export async function generateMetadata({ searchParams }) {
     return {
@@ -36,10 +35,6 @@ const page = async ({ searchParams }) => {
     }
 
 
-    function Loading() {
-        return <h2>🌀 Loading...</h2>;
-    }
-
     return (
         <div className="w-full px-4 pb-52" >
             <p className="text-gray-600 text-sm w-full max-w-4xl mx-auto mb-6"> About {data.searchInformation?.formattedTotalResults} results in {data.searchInformation?.formattedSearchTime} seconds</p>
@@ -58,11 +53,10 @@ const page = async ({ searchParams }) => {
                     </div>
                 })}
             </div>
-            <Suspense fallback={<Loading />}>
-                <div className="w-full max-w-4xl mx-auto  mt-12 flex justify-center">
-                    <Pagination />
-                </div>
-            </Suspense>
+            <div className="w-full max-w-4xl mx-auto  mt-12 flex justify-center">
+                <Pagination />
+            </div>
+
         </div >
     )
 }
