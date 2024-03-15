@@ -25,7 +25,7 @@ const HomeSearch = () => {
             return
         }
         router.push(`search/web?searchTerm=${input}`)
-        toast.success("search successfull !")
+
     }
 
     const SearchRandomWord = async (e) => {

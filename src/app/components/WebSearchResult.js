@@ -1,5 +1,11 @@
 import Link from "next/link"
 import Pagination from "./Pagination"
+import { Suspense } from "react"
+
+
+function Loading() {
+    return <h2>🌀 Loading...</h2>;
+}
 
 export default function WebSearchResult({ results }) {
     return (
@@ -18,8 +24,10 @@ export default function WebSearchResult({ results }) {
                     )
                 })}
 
-                <Pagination />
-            </div >
-        </div >
+                <Suspense fallback={<Loading />}>
+                    <Pagination />
+                </Suspense>
+            </div>
+        </div>
     )
 }
