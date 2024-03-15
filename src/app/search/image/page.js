@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Error from "../error";
 import Pagination from "@/app/components/Pagination";
+import Image from "next/image";
 
 export async function generateMetadata({ searchParams }) {
     return {
@@ -24,7 +25,7 @@ const page = async ({ searchParams }) => {
     if (!results) {
         return (
             <div className="flex flex-col mt-10 items-center">
-                <h1 className='text-3xl font-bold'>Can't Serach Results for the word {searchParams.searchTerm}</h1>
+                <h1 className='text-3xl font-bold'>Can&apos;t Serach Results for the word {searchParams.searchTerm}</h1>
                 <p className="text-lg py-4">
                     Try Searching Some New Word {" "}
                     <Link className="text-blue-500" href="/">Home</Link>
@@ -41,7 +42,7 @@ const page = async ({ searchParams }) => {
                     return <div key={index} className="w-full max-w-[300px] p-4 group">
                         <Link href={image.link}>
                             <div className=" h-[180px] w-[300px] group-hover:shadow-xl">
-                                <img src={image.link} alt={image.title} width={300} height={300} className="object-contain h-[180px] w-[300px]" />
+                                <Image src={image.link} alt={image.title} width={300} height={300} className="object-contain h-[180px] w-[300px]" />
                             </div>
                         </Link>
                         <Link className="text-sm flex flex-col py-2" href={image.image.contextLink}>

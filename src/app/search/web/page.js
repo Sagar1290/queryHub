@@ -24,7 +24,7 @@ const page = async ({ searchParams }) => {
     if (!results) {
         return (
             <div className="flex flex-col mt-10 items-center px-4 justify-center text-center text-sm sm:text-md">
-                <h1 className='text-lg sm:text-3xl font-bold'>Can't Serach Results for the word {searchParams.searchTerm}</h1>
+                <h1 className='text-lg sm:text-3xl font-bold'>Can&apos;t Serach Results for the word {searchParams.searchTerm}</h1>
                 <p className="text-sm sm:text-lg py-4">
                     Try Searching Some Other Query {" "}
                     <Link className="text-blue-500" href="/">Home</Link>
