@@ -12,20 +12,24 @@ const HomeSearch = () => {
 
     const [input, setInput] = useState("");
     const [randomWordLoading, setRandomWordLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const router = useRouter();
 
     const handleChange = (e) => {
         setInput(e.target.value)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        setLoading(true)
         e.preventDefault();
         if (!input.trim()) {
             toast.error("Write Something to Search");
+            setLoading(false);
             return
         }
-        router.push(`search/web?searchTerm=${input}`)
 
+        router.push(`search/web?searchTerm=${input}`)
+        setLoading(false);
     }
 
     const SearchRandomWord = async (e) => {
@@ -48,7 +52,9 @@ const HomeSearch = () => {
                 <BsFillMicFill className='text-3xl md:text-2xl' />
             </form>
             <div className='flex flex-col sm:flex-row text-sm sm:text-md  gap-4 mt-4' >
-                <button onClick={handleSubmit} className='w-36 p-2 bg-cyan-100 hover:shadow-md '>Google Search</button>
+                <button onClick={handleSubmit} className='w-36 p-2 bg-cyan-100 hover:shadow-md disabled:opacity-80' disabled={loading} >
+                    {loading ? "Searching" : "Google Search"}
+                </button>
                 <button className='w-36 p-2 bg-cyan-100 hover:shadow-md disabled:opacity-80' disabled={randomWordLoading} onClick={SearchRandomWord}>
                     {randomWordLoading ? "Searching..." : "I'm Feeling Lucky"}
                 </button>

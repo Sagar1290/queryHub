@@ -1,4 +1,3 @@
-import Head from "next/head";
 import SearchHeader from "../components/SearchHeader";
 
 export const metadata = {

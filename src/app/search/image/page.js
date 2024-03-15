@@ -43,7 +43,7 @@ const page = async ({ searchParams }) => {
                     return <div key={index} className="w-full max-w-[300px] p-4 group">
                         <Link href={image.link}>
                             <div className=" h-[180px] w-[300px] group-hover:shadow-xl">
-                                <Image src={image.link} alt={image.title} width={300} height={300} className="object-contain h-[180px] w-[300px]" />
+                                <Image src={image.link} alt={image.title} width={300} height={300} className="object-contain h-[180px] w-[300px]" priority style={{ width: "auto", height: "auto" }} />
                             </div>
                         </Link>
                         <Link className="text-sm flex flex-col py-2" href={image.image.contextLink}>
@@ -56,7 +56,6 @@ const page = async ({ searchParams }) => {
             <div className="w-full max-w-4xl mx-auto  mt-12 flex justify-center">
                 <Pagination />
             </div>
-
         </div >
     )
 }
